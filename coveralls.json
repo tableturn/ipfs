@@ -1,0 +1,8 @@
+{
+  "skip_files": [
+    "config",
+    "priv",
+    "test",
+    "test/support"
+  ]
+}
