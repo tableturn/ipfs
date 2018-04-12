@@ -37,15 +37,13 @@ defmodule IPFS do
   @doc "High level function allowing to perform GET requests to the node."
   @spec get(t, path) :: result
   def get(conn, path) do
-    conn
-    |> request(path, &@http_client.get(&1))
+    request(conn, path, &@http_client.get(&1))
   end
 
   @doc "High level function allowing to send file contents to the node."
   @spec post_file(t, path, filename) :: result
   def post_file(conn, path, filename) do
-    conn
-    |> request(path, &@http_client.post(&1, multipart(filename)))
+    request(conn, path, &@http_client.post(&1, multipart(filename)))
   end
 
   # Private stuff.
