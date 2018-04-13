@@ -16,12 +16,11 @@ defmodule IPFSTest do
   end
 
   defp ipfs_conn(ctx) do
-    conn = %IPFS{
-      scheme: "http",
-      host: System.get_env("IPFS_HOST") || "localhost",
-      port: System.get_env("IPFS_PORT") || "9095"
-    }
-
-    {:ok, Map.put(ctx, :conn, conn)}
+    host = System.get_env("IPFS_HOST") || "localhost"
+    {:ok, Map.put(ctx, :conn, %IPFS{scheme: "http", host: host, port: port(host)})}
   end
+
+  defp port("ipfs"), do: 5001
+  defp port("ipfs-cluster"), do: 9095
+  defp port(_), do: 9095
 end
