@@ -18,6 +18,14 @@ defmodule IPFS do
   @type t :: %__MODULE__{scheme: String.t(), host: String.t(), port: pos_integer, base: path}
   defstruct scheme: "http", host: "localhost", port: 9095, base: "api/v0"
 
+  @doc "Retrieves version information about the running IPFS node."
+  @spec version(t) :: result
+  def version(conn), do: get(conn, "version")
+
+  @doc "Lists all keys stored in the local node."
+  @spec key_list(t) :: result
+  def key_list(conn), do: get(conn, "key/list")
+
   @doc "Adds content identified by its filename on disk to the IPFS network."
   @spec add(t, filename) :: result
   def add(conn, filename), do: post_file(conn, "add", filename)
