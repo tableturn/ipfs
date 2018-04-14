@@ -1,6 +1,6 @@
 defmodule IPFSTest do
   @moduledoc false
-  use Linky.DataCase, async: true
+  use ExUnit.Case, async: true
   doctest IPFS, import: true
 
   setup :ipfs_conn

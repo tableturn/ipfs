@@ -28,6 +28,7 @@ defmodule IPFS.MixProject do
 
   defp deps do
     [
+      {:poison, "~> 3.1"},
       {:httpoison, "~> 1.1"}
     ]
   end
