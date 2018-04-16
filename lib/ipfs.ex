@@ -76,7 +76,16 @@ defmodule IPFS do
 
   @spec to_result({:ok, any} | {:error, any}) :: result
   defp to_result({:ok, %HTTPoison.Response{status_code: 200, body: b}}) do
-    Poison.decode(b)
+    case Poison.decode(b) do
+      {:ok, _} = res -> res
+      {:error, :invalid, 0} -> {:ok, %{}}
+      otherwise -> otherwise
+    end
+  end
+
+  @spec to_result({:ok, any} | {:error, any}) :: result
+  defp to_result({:ok, %HTTPoison.Response{status_code: 200}}) do
+    %{}
   end
 
   defp to_result({:ok, %HTTPoison.Response{status_code: c, body: b}}) do
