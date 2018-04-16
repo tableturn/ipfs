@@ -30,22 +30,30 @@ defmodule IPFS do
   @spec add(t, filename) :: result
   def add(conn, filename), do: post_file(conn, "add", filename)
 
+  # Pinning.
+
   @doc "List all pins registered on this node."
   @spec pin_ls(t) :: result
   def pin_ls(conn), do: get(conn, "pin/ls")
 
   @doc "Instructs the node to pin a given CID."
   @spec pin_add(t, cid) :: result
-  def pin_add(conn, cid), do: get(conn, "pin/add/#{cid}")
+  def pin_add(conn, cid), do: get(conn, "pin/add", arg: cid)
 
   @doc "Instructs the node to let go of a given CID."
   @spec pin_rm(t, cid) :: result
-  def pin_rm(conn, cid), do: get(conn, "pin/rm/#{cid}")
+  def pin_rm(conn, cid), do: get(conn, "pin/rm", arg: cid)
+
+  @doc "Verifies the status of a pinning."
+  @spec pin_verify(t) :: result
+  def pin_verify(conn), do: get(conn, "pin/verify")
+
+  # Generic request helpers.
 
   @doc "High level function allowing to perform GET requests to the node."
-  @spec get(t, path) :: result
-  def get(conn, path) do
-    request(conn, path, &@http_client.get(&1))
+  @spec get(t, path, map) :: result
+  def get(conn, path, params \\ []) do
+    request(conn, path, &@http_client.get(&1, [], params: params))
   end
 
   @doc "High level function allowing to send file contents to the node."
