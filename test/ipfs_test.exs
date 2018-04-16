@@ -15,6 +15,28 @@ defmodule IPFSTest do
     assert is_map(keys)
   end
 
+  test "can pin, list pins and then unpin", %{conn: conn} do
+    file = "test/fixtures/Very Nice Great Success.jpg"
+    {:ok, %{"Hash" => cid, "Name" => cid, "Size" => "44722"}} = IPFS.add(conn, file)
+    refute 0 == String.length(cid)
+
+    Process.sleep(125)
+    {:ok, %{"Pins" => pins}} = IPFS.pin_add(conn, cid)
+    assert Enum.member?(pins, cid)
+
+    Process.sleep(125)
+    {:ok, %{"Keys" => pins}} = IPFS.pin_ls(conn)
+    assert Map.has_key?(pins, cid)
+
+    Process.sleep(125)
+    {:ok, %{"Pins" => pins}} = IPFS.pin_rm(conn, cid)
+    assert Enum.member?(pins, cid)
+
+    Process.sleep(125)
+    {:ok, %{"Keys" => pins}} = IPFS.pin_ls(conn)
+    refute Map.has_key?(pins, cid)
+  end
+
   defp ipfs_conn(ctx) do
     host = System.get_env("IPFS_HOST") || "localhost"
     {:ok, Map.put(ctx, :conn, %IPFS{scheme: "http", host: host, port: port(host)})}
