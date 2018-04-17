@@ -13,7 +13,8 @@ defmodule IPFS.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      test_coverage: [tool: ExCoveralls]
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: cli_env_for(:test, ~w(vcr.delete vcr.check vcr.show))
     ]
   end
 
@@ -29,7 +30,12 @@ defmodule IPFS.MixProject do
   defp deps do
     [
       {:poison, "~> 3.1"},
-      {:httpoison, "~> 1.1"}
+      {:httpoison, "~> 1.1"},
+      {:exvcr, "~> 0.10", only: :test}
     ]
+  end
+
+  defp cli_env_for(env, tasks) do
+    Enum.reduce(tasks, [], &Keyword.put(&2, :"#{&1}", env))
   end
 end

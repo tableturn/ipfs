@@ -1,0 +1,111 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:5001/api/v0/pin/add?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"Pins\":[\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\"]}\n",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "Date": "Tue, 17 Apr 2018 21:08:58 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:5001/api/v0/pin/ls?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"Keys\":{\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\":{\"Type\":\"recursive\"}}}\n",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "Date": "Tue, 17 Apr 2018 21:08:59 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:5001/api/v0/pin/rm?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"Pins\":[\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\"]}\n",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "Date": "Tue, 17 Apr 2018 21:08:59 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:5001/api/v0/pin/verify?"
+    },
+    "response": {
+      "binary": false,
+      "body": "",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "X-Chunked-Output": "1",
+        "Date": "Tue, 17 Apr 2018 21:08:59 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

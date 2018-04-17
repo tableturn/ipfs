@@ -1,0 +1,30 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{:file, \"test/fixtures/Very Nice Great Success.jpg\", {\"form-data\", [name: \"Very Nice Great Success.jpg\", filename: \"test/fixtures/Very Nice Great Success.jpg\"]}, []}]}",
+      "headers": [],
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:5001/api/v0/add"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"Name\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"Hash\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"Size\":\"44722\"}\n",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "X-Chunked-Output": "1",
+        "Date": "Tue, 17 Apr 2018 20:49:59 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

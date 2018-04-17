@@ -1,0 +1,29 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:5001/api/v0/version?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"Version\":\"0.4.13\",\"Commit\":\"3b16b74\",\"Repo\":\"6\",\"System\":\"amd64/linux\",\"Golang\":\"go1.9.2\"}\n",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "Date": "Tue, 17 Apr 2018 20:49:58 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

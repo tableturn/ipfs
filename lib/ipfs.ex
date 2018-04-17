@@ -3,8 +3,6 @@ defmodule IPFS do
   Provides abstration allowing to access IPFS nodes with low effort.
   """
 
-  @http_client HTTPoison
-
   @typedoc "Represents an endpoint path to hit."
   @type path :: String.t()
   @typedoc "Identifies content on the IPFS network using a multihash string."
@@ -16,7 +14,7 @@ defmodule IPFS do
 
   @typedoc "Represents the endpoint to hit. Required as the first argument of most functions."
   @type t :: %__MODULE__{scheme: String.t(), host: String.t(), port: pos_integer, base: path}
-  defstruct scheme: "http", host: "localhost", port: 9095, base: "api/v0"
+  defstruct scheme: "http", host: "localhost", port: 5001, base: "api/v0"
 
   @doc "Retrieves version information about the running IPFS node."
   @spec version(t) :: result
@@ -53,13 +51,13 @@ defmodule IPFS do
   @doc "High level function allowing to perform GET requests to the node."
   @spec get(t, path, map) :: result
   def get(conn, path, params \\ []) do
-    request(conn, path, &@http_client.get(&1, [], params: params))
+    request(conn, path, &HTTPoison.get(&1, [], params: params))
   end
 
   @doc "High level function allowing to send file contents to the node."
   @spec post_file(t, path, filename) :: result
   def post_file(conn, path, filename) do
-    request(conn, path, &@http_client.post(&1, multipart(filename)))
+    request(conn, path, &HTTPoison.post(&1, multipart(filename)))
   end
 
   # Private stuff.

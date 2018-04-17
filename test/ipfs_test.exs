@@ -1,48 +1,72 @@
 defmodule IPFSTest do
   @moduledoc false
+
   use ExUnit.Case, async: true
+  use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
+
   doctest IPFS, import: true
+
+  @cassette_opts [match_requests_on: [:query, :request_body]]
+
+  @filename "test/fixtures/Very Nice Great Success.jpg"
+  @cid "QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
+  @size "44722"
 
   setup :ipfs_conn
 
-  test "can fetch the node's version", %{conn: conn} do
-    {:ok, versions} = IPFS.version(conn)
-    assert is_map(versions)
+  test "#version", %{conn: conn} do
+    use_cassette "version", @cassette_opts do
+      assert conn
+             |> IPFS.version()
+             |> deokify()
+             |> is_map
+    end
   end
 
-  test "can read dht keys", %{conn: conn} do
-    {:ok, keys} = IPFS.key_list(conn)
-    assert is_map(keys)
+  test "#key_list", %{conn: conn} do
+    use_cassette "key/list", @cassette_opts do
+      assert conn
+             |> IPFS.key_list()
+             |> deokify
+             |> is_map
+    end
   end
 
-  test "can pin, list pins and then unpin", %{conn: conn} do
-    file = "test/fixtures/Very Nice Great Success.jpg"
-    {:ok, %{"Hash" => cid, "Name" => cid, "Size" => "44722"}} = IPFS.add(conn, file)
-    refute 0 == String.length(cid)
-
-    Process.sleep(125)
-    {:ok, %{"Pins" => pins}} = IPFS.pin_add(conn, cid)
-    assert Enum.member?(pins, cid)
-
-    Process.sleep(125)
-    {:ok, %{"Keys" => pins}} = IPFS.pin_ls(conn)
-    assert Map.has_key?(pins, cid)
-
-    Process.sleep(125)
-    {:ok, %{"Pins" => pins}} = IPFS.pin_rm(conn, cid)
-    assert Enum.member?(pins, cid)
-
-    Process.sleep(125)
-    {:ok, %{"Keys" => pins}} = IPFS.pin_ls(conn)
-    refute Map.has_key?(pins, cid)
+  test "#add", %{conn: conn} do
+    use_cassette "add", @cassette_opts do
+      conn
+      |> IPFS.add(@filename)
+      |> deokify
+      |> assert_equals(%{"Hash" => @cid, "Name" => @cid, "Size" => @size})
+    end
   end
 
-  defp ipfs_conn(ctx) do
-    host = System.get_env("IPFS_HOST") || "localhost"
-    {:ok, Map.put(ctx, :conn, %IPFS{scheme: "http", host: host, port: port(host)})}
+  test "pinning can add, list, remove and verify", %{conn: conn} do
+    use_cassette "pinning", @cassette_opts do
+      conn
+      |> IPFS.pin_add(@cid)
+      |> deokify
+      |> assert_equals(%{"Pins" => [@cid]})
+
+      conn
+      |> IPFS.pin_ls()
+      |> deokify
+      |> assert_equals(%{"Keys" => %{@cid => %{"Type" => "recursive"}}})
+
+      conn
+      |> IPFS.pin_rm(@cid)
+      |> deokify
+      |> assert_equals(%{"Pins" => [@cid]})
+
+      conn
+      |> IPFS.pin_verify()
+      |> deokify
+      |> assert_equals(%{})
+    end
   end
 
-  defp port("ipfs"), do: 5001
-  defp port("ipfs-cluster"), do: 9095
-  defp port(_), do: 9095
+  defp ipfs_conn(ctx), do: {:ok, Map.put(ctx, :conn, %IPFS{})}
+
+  defp deokify({:ok, res}), do: res
+  defp assert_equals(left, right), do: assert(left == right)
 end
