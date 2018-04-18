@@ -8,65 +8,85 @@ defmodule IPFSTest do
 
   @cassette_opts [match_requests_on: [:query, :request_body]]
 
-  @filename "test/fixtures/Very Nice Great Success.jpg"
-  @cid "QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
-  @size "44722"
+  setup :ipfs
 
-  setup :ipfs_conn
+  @vers "0.4.13"
+  @hash "3b16b74"
+  @go "go1.9.2"
+  @sys "amd64/linux"
 
-  test "#version", %{conn: conn} do
+  test "#version", %{ipfs: ipfs} do
     use_cassette "version", @cassette_opts do
-      assert conn
-             |> IPFS.version()
-             |> deokify()
-             |> is_map
+      ipfs
+      |> IPFS.version()
+      |> deokify()
+      |> assert_equals(%{version: @vers, commit: @hash, golang: @go, system: @sys})
     end
   end
 
-  test "#key_list", %{conn: conn} do
-    use_cassette "key/list", @cassette_opts do
-      assert conn
-             |> IPFS.key_list()
-             |> deokify
-             |> is_map
+  @name1 "doodloo"
+  @name2 "ben"
+  @kid "QmVfsQSr9xmdUY2i5TNRc4ooRdpDhxywhpVtoX9jDU9X9f"
+  @nid "QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g"
+
+  test "can perform key related operations", %{ipfs: ipfs} do
+    use_cassette "keying", @cassette_opts do
+      ipfs
+      |> IPFS.key_gen(@name1, :rsa, 2048)
+      |> deokify
+      |> assert_equals(%{id: @kid})
+
+      ipfs
+      |> IPFS.key_list()
+      |> deokify
+      |> assert_equals([%{id: @kid, name: @name1}, %{id: @nid, name: "self"}])
+
+      ipfs
+      |> IPFS.key_rename(@name1, @name2, true)
+      |> deokify
+      |> assert_equals(:success)
+
+      ipfs
+      |> IPFS.key_rm(@name2)
+      |> deokify
+      |> assert_equals(:success)
     end
   end
 
-  test "#add", %{conn: conn} do
+  @filename "test/fixtures/Very Nice Great Success.jpg"
+  @size "44722"
+  @cid "QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
+
+  test "#add", %{ipfs: ipfs} do
     use_cassette "add", @cassette_opts do
-      conn
+      ipfs
       |> IPFS.add(@filename)
       |> deokify
-      |> assert_equals(%{"Hash" => @cid, "Name" => @cid, "Size" => @size})
+      |> assert_equals(%{hash: @cid, name: @cid, size: @size})
     end
   end
 
-  test "pinning can add, list, remove and verify", %{conn: conn} do
+  test "can perform pin related operations", %{ipfs: ipfs} do
     use_cassette "pinning", @cassette_opts do
-      conn
+      ipfs
       |> IPFS.pin_add(@cid)
       |> deokify
-      |> assert_equals(%{"Pins" => [@cid]})
+      |> assert_equals(:success)
 
-      conn
+      ipfs
       |> IPFS.pin_ls()
       |> deokify
-      |> assert_equals(%{"Keys" => %{@cid => %{"Type" => "recursive"}}})
+      |> assert_equals(%{@cid => %{"Type" => "recursive"}})
 
-      conn
+      ipfs
       |> IPFS.pin_rm(@cid)
       |> deokify
-      |> assert_equals(%{"Pins" => [@cid]})
-
-      conn
-      |> IPFS.pin_verify()
-      |> deokify
-      |> assert_equals(%{})
+      |> assert_equals(:success)
     end
   end
 
-  defp ipfs_conn(ctx), do: {:ok, Map.put(ctx, :conn, %IPFS{})}
+  defp ipfs(ctx), do: {:ok, Map.put(ctx, :ipfs, %IPFS{port: 9095})}
 
   defp deokify({:ok, res}), do: res
-  defp assert_equals(left, right), do: assert(left == right)
+  defp assert_equals(right, left), do: assert(left == right)
 end

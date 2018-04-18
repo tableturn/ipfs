@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:5001/api/v0/version?"
+      "url": "http://localhost:9095/api/v0/version?"
     },
     "response": {
       "binary": false,
@@ -19,7 +19,7 @@
         "Server": "go-ipfs/0.4.13",
         "Trailer": "X-Stream-Error",
         "Vary": "Origin",
-        "Date": "Tue, 17 Apr 2018 20:49:58 GMT",
+        "Date": "Wed, 18 Apr 2018 14:31:21 GMT",
         "Transfer-Encoding": "chunked"
       },
       "status_code": 200,

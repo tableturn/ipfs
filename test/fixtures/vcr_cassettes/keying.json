@@ -6,11 +6,11 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/pin/add?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
+      "url": "http://localhost:9095/api/v0/key/gen?arg=doodloo&type=rsa&size=2048"
     },
     "response": {
       "binary": false,
-      "body": "{\"Pins\":[\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\"]}\n",
+      "body": "{\"Name\":\"doodloo\",\"Id\":\"QmVfsQSr9xmdUY2i5TNRc4ooRdpDhxywhpVtoX9jDU9X9f\"}\n",
       "headers": {
         "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
         "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
@@ -19,7 +19,7 @@
         "Server": "go-ipfs/0.4.13",
         "Trailer": "X-Stream-Error",
         "Vary": "Origin",
-        "Date": "Wed, 18 Apr 2018 14:39:49 GMT",
+        "Date": "Wed, 18 Apr 2018 14:47:43 GMT",
         "Transfer-Encoding": "chunked"
       },
       "status_code": 200,
@@ -33,11 +33,11 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/pin/ls?"
+      "url": "http://localhost:9095/api/v0/key/list?"
     },
     "response": {
       "binary": false,
-      "body": "{\"Keys\":{\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\":{\"Type\":\"recursive\"}}}\n",
+      "body": "{\"Keys\":[{\"Name\":\"self\",\"Id\":\"QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g\"},{\"Name\":\"doodloo\",\"Id\":\"QmVfsQSr9xmdUY2i5TNRc4ooRdpDhxywhpVtoX9jDU9X9f\"}]}\n",
       "headers": {
         "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
         "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
@@ -46,7 +46,7 @@
         "Server": "go-ipfs/0.4.13",
         "Trailer": "X-Stream-Error",
         "Vary": "Origin",
-        "Date": "Wed, 18 Apr 2018 14:39:49 GMT",
+        "Date": "Wed, 18 Apr 2018 14:47:43 GMT",
         "Transfer-Encoding": "chunked"
       },
       "status_code": 200,
@@ -60,11 +60,11 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/pin/rm?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
+      "url": "http://localhost:9095/api/v0/key/rename?arg=doodloo&arg=ben&force=true"
     },
     "response": {
       "binary": false,
-      "body": "{\"Pins\":[\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\"]}\n",
+      "body": "{\"Was\":\"doodloo\",\"Now\":\"ben\",\"Id\":\"QmVfsQSr9xmdUY2i5TNRc4ooRdpDhxywhpVtoX9jDU9X9f\",\"Overwrite\":false}\n",
       "headers": {
         "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
         "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
@@ -73,7 +73,34 @@
         "Server": "go-ipfs/0.4.13",
         "Trailer": "X-Stream-Error",
         "Vary": "Origin",
-        "Date": "Wed, 18 Apr 2018 14:39:49 GMT",
+        "Date": "Wed, 18 Apr 2018 14:47:43 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:9095/api/v0/key/rm?arg=ben"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"Keys\":[{\"Name\":\"ben\",\"Id\":\"QmVfsQSr9xmdUY2i5TNRc4ooRdpDhxywhpVtoX9jDU9X9f\"}]}\n",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "Date": "Wed, 18 Apr 2018 14:47:44 GMT",
         "Transfer-Encoding": "chunked"
       },
       "status_code": 200,
