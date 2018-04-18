@@ -17,7 +17,9 @@ defmodule IPFS.MixProject do
       preferred_cli_env: cli_env_for(:test, ~w(
         coveralls coveralls.detail coveralls.html coveralls.json coveralls.post
         vcr.delete vcr.check vcr.show
-      ))
+      )),
+      package: package(),
+      description: "A wrapper around the IPFS and IPFS Cluster APIs."
     ]
   end
 
@@ -46,5 +48,15 @@ defmodule IPFS.MixProject do
 
   defp cli_env_for(env, tasks) do
     Enum.reduce(tasks, [], &Keyword.put(&2, :"#{&1}", env))
+  end
+
+  defp package do
+    [
+      name: "ipfs",
+      files: ["lib", "mix.exs", "README*"],
+      maintainers: ["Pierre Martin"],
+      licenses: ["Apache 2.0"],
+      links: %{"GitHub" => "https://github.com/the-missing-link/ipfs"}
+    ]
   end
 end

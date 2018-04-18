@@ -14,8 +14,6 @@ defmodule IPFS do
   @typedoc "Models the result of most of the functions accessible in this module."
   @type result :: {:ok, any} | {:error, any}
 
-  @typep poison_result :: {:ok, Response.t() | AsyncResponse.t()} | {:error, Error.t()}
-
   @typedoc "Represents the endpoint to hit. Required as the first argument of most functions."
   @type t :: %__MODULE__{scheme: String.t(), host: String.t(), port: pos_integer, base: path}
   defstruct scheme: "http", host: "localhost", port: 5001, base: "api/v0"
@@ -28,6 +26,8 @@ defmodule IPFS do
     |> remap_fields(version: "Version", commit: "Commit", system: "System", golang: "Golang")
     |> okify
   end
+
+  @typep poison_result :: {:ok, Response.t() | AsyncResponse.t()} | {:error, Error.t()}
 
   # Key management.
 
