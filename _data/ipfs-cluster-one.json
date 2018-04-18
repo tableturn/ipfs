@@ -1,0 +1,81 @@
+{
+  "cluster": {
+    "id": "QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT",
+    "peername": "7603af054573",
+    "private_key": "CAASpwkwggSjAgEAAoIBAQCzapvCzR2nzBBOnsFRXfctPe9mX5GYnTKDYX4tBT+6OcQxD0cW0pXhNmtOZy3hbCAOPA1zmYtXdnI8sdJQipVkYJB/2nQ0wEZwoExPvDk2mT2CyhgbolpTs+zELSSVnkn2zgvptBxcsQ5HrbP4w78jfWBvDbHuAfvOCZ2M71Kz01RRwPQ+WwleutHkVk0QxLgsaEMEgRRvklEjwZBFUI3tYgNWAQaml8qYQNmyjYssO7fAkcKl5tv4LBiT8/vAqAEwQmuecqNjcLST/XaBYOtYAhAHtGREZGWokIAr6HVrWLjS7r7S6jR9eVY9KQTakyajtIZI0hj6mwhsQht1xyX9AgMBAAECggEAXHEWdiVHHVi4IjoL8weOPqJFwiKFmvOLvkOyRjIJJsNywbBUeX7hOJvYaBojep1CWvM4HxLCx7rAm2MnsNXmqURTz3xYGYHkCU2eZArgE7CbD9Ne3oYlMjFnUaDM08Yt59s8Khrh7iRP7kCilQ8OYZPM5wtQXQhqnDs6EQ6SNxJT63s+eqTgr1+0MH34aix5/ZscnBXd5+Mp00gbsFgasPjE/K9BuC3wxpufeY9+IzHdzmK2GkpZcJK8UmQGhhh02CStjat1J3MR+BNwdYffBZQqL4qjT8mNtEQkLzpQpGBJF/JW3liJTDdOeWooRBNpnIcvhL5GI1WpBgo9MG+BZQKBgQDWVu3Vhx/N3i1g4mzcsuGDUUpCax+SOvgBlIYwjV8jE1hTyo1k/W3bw4fHy5x7FlzU32zoujDAZm8vqEaufvEwlHRIE4DXAGXgFFiZbK1IkurmKO3Fr+8y5qH8E/3OYKb4KJW0AnqEVcG3wJWkNrVU8J+pzuZMZzcHxZwPYZsVPwKBgQDWSfsBf32PLvGYN4DazOretz+835DJPLbdSD2Sncvlnb9QFZUT0VUb8Ylj3OWGuoXSAk76Kg6dVxJtrz5F+FeAnPIwxvVivcJdPCqvkfVig69DQT51j75DhXTRBMzZ5HB3RLlRxUYAOU0r5Xlp6v1eGWyEQpBDOiMBOMrp46lJwwKBgQDB71Gu3F5YhWkFupnJb0lA6jKIuiiMxTJVK6/nCmNEd2J6HlGlSPE34Ulf68kgTfGc4rPGN4GY9JYxxs59YHqW/Bvig1MWNlP3VjF8UKrRea10px/MuQ1zPt7eGLCTJTyuWPprL7rvNjDbNDOxq5aSzk2I9Z3HD7TpIVG9URFjPQKBgHWWHvBRfxqkzdmTC1gE/hS8RXNk0lQ6xrViQLdFc29KQoK1dRps0eEFhziPLDvj+i6lKaVIksBv2SLq+Kb4gTuH47Y0Vs6aBh+XNm0lEJvAWtny4U0tVWBDyTgxBB/EpJot0es27xSMXPZrc1ZVpjaOiOeChxr8udyfx2jUjj51AoGAOZMFY44S8jf3bLdmVFic111KwqIxMPzeMZZMhqZ2tYOXBVxI6bPrnwYL/d7LA5PHoVaPnttcykZEcZQZysQAyaRiYQEVOfnhwUHc49SYeGGziDMVa7adRnAJamcU4breI+RNkm0wm1ZNuh+MEbbgng4TIcoMMOW9kWAkSCSA1NU=",
+    "secret": "c5c7199d2b3bf59a6369c249982fcf309285bdecd79396af6838dbd489d9e019",
+    "peers": [
+      "/ip4/172.240.0.22/tcp/9096/ipfs/Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5",
+      "/ip4/127.0.0.1/tcp/9096/ipfs/Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5"
+    ],
+    "bootstrap": [],
+    "leave_on_shutdown": false,
+    "listen_multiaddress": "/ip4/0.0.0.0/tcp/9096",
+    "state_sync_interval": "1m0s",
+    "ipfs_sync_interval": "2m10s",
+    "replication_factor_min": 1,
+    "replication_factor_max": 3,
+    "monitor_ping_interval": "15s"
+  },
+  "consensus": {
+    "raft": {
+      "wait_for_leader_timeout": "15s",
+      "network_timeout": "10s",
+      "commit_retries": 0,
+      "commit_retry_delay": "200ms",
+      "heartbeat_timeout": "1s",
+      "election_timeout": "1s",
+      "commit_timeout": "50ms",
+      "max_append_entries": 64,
+      "trailing_logs": 10240,
+      "snapshot_interval": "2m0s",
+      "snapshot_threshold": 8192,
+      "leader_lease_timeout": "500ms"
+    }
+  },
+  "api": {
+    "restapi": {
+      "listen_multiaddress": "",
+      "http_listen_multiaddress": "/ip4/0.0.0.0/tcp/9094",
+      "read_timeout": "30s",
+      "read_header_timeout": "5s",
+      "write_timeout": "1m0s",
+      "idle_timeout": "2m0s",
+      "basic_auth_credentials": null
+    }
+  },
+  "ipfs_connector": {
+    "ipfshttp": {
+      "proxy_listen_multiaddress": "/ip4/0.0.0.0/tcp/9095",
+      "node_multiaddress": "/ip4/172.240.0.11/tcp/5001",
+      "connect_swarms_delay": "30s",
+      "proxy_read_timeout": "10m0s",
+      "proxy_read_header_timeout": "5s",
+      "proxy_write_timeout": "10m0s",
+      "proxy_idle_timeout": "1m0s",
+      "pin_method": "refs"
+    }
+  },
+  "pin_tracker": {
+    "maptracker": {
+      "pinning_timeout": "1h0m0s",
+      "unpinning_timeout": "5m0s",
+      "max_pin_queue_size": 4096,
+      "concurrent_pins": 8
+    }
+  },
+  "monitor": {
+    "monbasic": {
+      "check_interval": "15s"
+    }
+  },
+  "informer": {
+    "disk": {
+      "metric_ttl": "30s",
+      "metric_type": "reposize"
+    },
+    "numpin": {
+      "metric_ttl": "10s"
+    }
+  }
+}

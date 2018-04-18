@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+  ipfs-one:
+    image: ipfs/go-ipfs
+    networks:
+      ipfs:
+        ipv4_address: 172.240.0.11
+    ports:
+      - 5001:5001
+      - 8080:8080
+    volumes:
+      - ./_data/ipfs-node-one/config:/data/ipfs/config:ro
+      - ./_data/ipfs-node-one/version:/data/ipfs/version:ro
+      - ./_data/ipfs-node-one/datastore_spec:/data/ipfs/datastore_spec:ro
+
+  ipfs-cluster-one:
+    image: ipfs/ipfs-cluster:v0.3.5
+    networks:
+      ipfs:
+        ipv4_address: 172.240.0.12
+    ports:
+      - 9095:9095
+    environment:
+      - IPFS_API=/ip4/172.240.0.11/tcp/5001
+    volumes:
+      - ./_data/ipfs-cluster-one.json:/data/ipfs-cluster/service.json:ro
+
+  ipfs-two:
+    image: ipfs/go-ipfs
+    networks:
+      ipfs:
+        ipv4_address: 172.240.0.21
+
+  ipfs-cluster-two:
+    image: ipfs/ipfs-cluster:v0.3.5
+    networks:
+      ipfs:
+        ipv4_address: 172.240.0.22
+    environment:
+      - IPFS_API=/ip4/172.240.0.21/tcp/5001
+    volumes:
+      - ./_data/ipfs-cluster-two.json:/data/ipfs-cluster/service.json:ro
+
+networks:
+  ipfs:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.240.0.0/24
