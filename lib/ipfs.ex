@@ -31,7 +31,13 @@ defmodule IPFS do
 
   # Key management.
 
-  @doc "Generates a new keypair given its `name` and optional `type` and `size`."
+  @doc """
+  Generates a new keypair given its `name` and optional `type` and `size`.
+
+  Note that `type` could be either one of `:rsa` or `:ed25519` only.
+
+  Returns a `result`.
+  """
   @spec key_gen(t, String.t(), :rsa | :ed25519, pos_integer) :: result
   def key_gen(conn, name, type \\ :rsa, size \\ 2048) do
     conn
@@ -71,9 +77,10 @@ defmodule IPFS do
   # Content management.
 
   @doc """
-  Adds content identified by its filename on disk to the IPFS network.
+  Adds content identified by its `filename` on disk to the IPFS network.
 
-  A range of params can be specified
+  A range of `params` can be specified, please refer to the official
+  [IPFS documentation](https://ipfs.io/docs/api/#apiv0add) for more information.
   """
   @spec add(t, filename, keyword) :: result
   def add(conn, filename, params \\ []) do
@@ -93,7 +100,7 @@ defmodule IPFS do
     end
   end
 
-  @doc "Instructs the node to pin a given CID."
+  @doc "Instructs the node to pin a given `cid`."
   @spec pin_add(t, cid) :: result
   def pin_add(conn, cid) do
     conn
@@ -101,7 +108,7 @@ defmodule IPFS do
     |> successify_with
   end
 
-  @doc "Instructs the node to let go of a given CID."
+  @doc "Instructs the node to let go of a given `cid`."
   @spec pin_rm(t, cid) :: result
   def pin_rm(conn, cid) do
     conn
@@ -111,13 +118,23 @@ defmodule IPFS do
 
   # Generic request helpers.
 
-  @doc "High level function allowing to perform GET requests to the node."
+  @doc """
+  High level function allowing to perform GET requests to the node.
+
+  A `path` has to be provided, along with an optional list of `params` that are
+  dependent on the endpoint that will get hit.
+  """
   @spec get(t, path, keyword) :: result
   def get(conn, path, params \\ []) do
     request(conn, path, &HTTPoison.get(&1, [], params: params))
   end
 
-  @doc "High level function allowing to send file contents to the node."
+  @doc """
+  High level function allowing to send file contents to the node.
+
+  A `path` has to be specified along with the `filename` to be sent. Also, a list
+  of `params` can be optionally sent.
+  """
   @spec post_file(t, path, filename, keyword) :: result
   def post_file(conn, path, filename, params \\ []) do
     request(conn, path, &HTTPoison.post(&1, multipart(filename), params: params))
