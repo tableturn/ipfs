@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/pin/add?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
+      "url": "http://localhost:5001/api/v0/pin/add?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
     },
     "response": {
       "binary": false,
@@ -33,7 +33,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/pin/ls?"
+      "url": "http://localhost:5001/api/v0/pin/ls?"
     },
     "response": {
       "binary": false,
@@ -60,7 +60,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/pin/rm?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
+      "url": "http://localhost:5001/api/v0/pin/rm?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
     },
     "response": {
       "binary": false,

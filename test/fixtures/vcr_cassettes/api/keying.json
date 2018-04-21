@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/key/gen?arg=doodloo&type=rsa&size=2048"
+      "url": "http://localhost:5001/api/v0/key/gen?arg=doodloo&type=rsa&size=2048"
     },
     "response": {
       "binary": false,
@@ -33,7 +33,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/key/list?"
+      "url": "http://localhost:5001/api/v0/key/list?"
     },
     "response": {
       "binary": false,
@@ -60,7 +60,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/key/rename?arg=doodloo&arg=ben&force=true"
+      "url": "http://localhost:5001/api/v0/key/rename?arg=doodloo&arg=ben&force=true"
     },
     "response": {
       "binary": false,
@@ -87,7 +87,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/key/rm?arg=ben"
+      "url": "http://localhost:5001/api/v0/key/rm?arg=ben"
     },
     "response": {
       "binary": false,

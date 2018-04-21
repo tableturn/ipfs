@@ -1,0 +1,23 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:9094/version?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"Version\":\"0.3.5\"}\n",
+      "headers": {
+        "Content-Type": "application/json",
+        "Date": "Sat, 21 Apr 2018 18:39:32 GMT",
+        "Content-Length": "20"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
