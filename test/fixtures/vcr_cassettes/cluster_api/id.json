@@ -1,0 +1,23 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:9094/id?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"id\":\"QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\",\"addresses\":[\"/ip4/172.240.0.12/tcp/9096/ipfs/QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\",\"/ip4/127.0.0.1/tcp/9096/ipfs/QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\"],\"cluster_peers\":[\"Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5\",\"QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\"],\"cluster_peers_addresses\":[\"/ip4/127.0.0.1/tcp/9096/ipfs/Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5\",\"/ip4/172.240.0.22/tcp/9096/ipfs/Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5\"],\"version\":\"0.3.5\",\"commit\":\"ed55daf2c6401ce656fdc470b3a9e06f4d145c63\",\"rpc_protocol_version\":\"/ipfscluster/0.3.5/rpc\",\"error\":\"\",\"ipfs\":{\"id\":\"QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g\",\"addresses\":[\"/ip4/127.0.0.1/tcp/4001/ipfs/QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g\",\"/ip4/172.240.0.11/tcp/4001/ipfs/QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g\",\"/ip4/86.176.58.181/tcp/4001/ipfs/QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g\"],\"error\":\"\"},\"peername\":\"7603af054573\"}\n",
+      "headers": {
+        "Content-Type": "application/json",
+        "Date": "Sat, 21 Apr 2018 18:41:50 GMT",
+        "Content-Length": "1016"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

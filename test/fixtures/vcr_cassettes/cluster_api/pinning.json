@@ -1,0 +1,44 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:9094/pins?"
+    },
+    "response": {
+      "binary": false,
+      "body": "[{\"cid\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"peer_map\":{\"Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5\":{\"cid\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"peer\":\"Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5\",\"status\":\"pin_error\",\"timestamp\":\"2018-04-21T19:11:45Z\",\"error\":\"Post http://172.240.0.21:5001/api/v0/pin/ls?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\\u0026type=recursive: dial tcp 172.240.0.21:5001: getsockopt: connection refused\"},\"QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\":{\"cid\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"peer\":\"QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\",\"status\":\"pin_error\",\"timestamp\":\"2018-04-21T19:11:45Z\",\"error\":\"Post http://172.240.0.11:5001/api/v0/pin/ls?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\\u0026type=recursive: dial tcp 172.240.0.11:5001: getsockopt: connection refused\"}}}]\n",
+      "headers": {
+        "Content-Type": "application/json",
+        "Date": "Sat, 21 Apr 2018 19:13:09 GMT",
+        "Content-Length": "878"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:9094/pins/QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"cid\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"peer_map\":{\"Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5\":{\"cid\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"peer\":\"Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5\",\"status\":\"pin_error\",\"timestamp\":\"2018-04-21T19:11:45Z\",\"error\":\"Post http://172.240.0.21:5001/api/v0/pin/ls?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\\u0026type=recursive: dial tcp 172.240.0.21:5001: getsockopt: connection refused\"},\"QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\":{\"cid\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"peer\":\"QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\",\"status\":\"pin_error\",\"timestamp\":\"2018-04-21T19:11:45Z\",\"error\":\"Post http://172.240.0.11:5001/api/v0/pin/ls?arg=QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\\u0026type=recursive: dial tcp 172.240.0.11:5001: getsockopt: connection refused\"}}}\n",
+      "headers": {
+        "Content-Type": "application/json",
+        "Date": "Sat, 21 Apr 2018 19:13:09 GMT",
+        "Content-Length": "876"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

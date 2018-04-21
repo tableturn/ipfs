@@ -1,0 +1,44 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:9094/allocations?"
+    },
+    "response": {
+      "binary": false,
+      "body": "[{\"cid\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"name\":\"\",\"allocations\":[\"QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\",\"Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5\"],\"replication_factor_min\":1,\"replication_factor_max\":3,\"recursive\":false}]\n",
+      "headers": {
+        "Content-Type": "application/json",
+        "Date": "Sat, 21 Apr 2018 19:11:10 GMT",
+        "Content-Length": "255"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:9094/allocations/QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"cid\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"name\":\"\",\"allocations\":[\"QmeybQebcM9LwyyHcg7RM3ZbAgQmXKyQEGRCmHJRxycdUT\",\"Qmc6H2UwRty245dRnSNJs2CANZHmZU92kVsLMhwenjB7c5\"],\"replication_factor_min\":1,\"replication_factor_max\":3,\"recursive\":false}\n",
+      "headers": {
+        "Content-Type": "application/json",
+        "Date": "Sat, 21 Apr 2018 19:11:10 GMT",
+        "Content-Length": "253"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

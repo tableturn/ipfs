@@ -1,16 +1,18 @@
 [
   {
     "request": {
-      "body": "",
-      "headers": [],
-      "method": "get",
+      "body": "{:multipart, [{:file, \"test/fixtures/Very Nice Great Success.jpg\", {\"form-data\", [name: \"Very Nice Great Success.jpg\", filename: \"test/fixtures/Very Nice Great Success.jpg\"]}, []}]}",
+      "headers": {
+        "params": ""
+      },
+      "method": "post",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9095/api/v0/version?"
+      "url": "http://localhost:5001/api/v0/add"
     },
     "response": {
       "binary": false,
-      "body": "{\"Version\":\"0.4.13\",\"Commit\":\"3b16b74\",\"Repo\":\"6\",\"System\":\"amd64/linux\",\"Golang\":\"go1.9.2\"}\n",
+      "body": "{\"Name\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"Hash\":\"QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3\",\"Size\":\"44722\"}\n",
       "headers": {
         "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
         "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
@@ -19,6 +21,7 @@
         "Server": "go-ipfs/0.4.13",
         "Trailer": "X-Stream-Error",
         "Vary": "Origin",
+        "X-Chunked-Output": "1",
         "Date": "Wed, 18 Apr 2018 14:31:21 GMT",
         "Transfer-Encoding": "chunked"
       },

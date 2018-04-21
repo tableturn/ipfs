@@ -1,5 +1,14 @@
 defmodule IPFS.ClusterAPI do
-  @moduledoc false
+  @moduledoc """
+  The following endpoint wrappers still need to be implemented:
+  - POST /peers
+  - DELETE /peers/{peerID}
+  - POST /pins/sync
+  - POST /pins/{cid}
+  - DELETE /pins/{cid}
+  - POST /pins/{cid}/sync
+  - POST /pins/{cid}/recover
+  """
 
   import IPFS, only: [get: 2]
   import IPFS.Utils, only: [remap_fields: 2, remap_array: 2, okify: 1]
@@ -20,19 +29,17 @@ defmodule IPFS.ClusterAPI do
   def id(conn) do
     conn
     |> get("id")
-    |> IO.inspect()
     |> remap_fields(@id_fields)
     |> okify
   end
 
-  @version_fields ~w(version)a |> Enum.reduce([], &Keyword.put(&2, &1, to_string(&1)))
+  @version_fields [version: "Version"]
 
   @doc "Retrieves version information about the running IPFS node."
   @spec version(t) :: result
   def version(conn) do
     conn
     |> get("version")
-    |> IO.inspect()
     |> remap_fields(@version_fields)
     |> okify
   end
