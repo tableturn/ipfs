@@ -10,6 +10,27 @@ defmodule IPFS.API do
   @type filename :: IPFS.filename()
   @type result :: IPFS.result()
 
+  @doc "Builds a likelly to work connection struct to use with the IPFS API."
+  @spec conn() :: t
+  def conn(), do: %IPFS{scheme: "http", host: "localhost", port: 5001, base: "api/v0"}
+
+  # Top-level informative endpoints.
+
+  @doc "Retrieves the cluster peer information."
+  @spec id(t) :: result
+  def id(conn) do
+    conn
+    |> get("id")
+    |> remap_fields(
+      addresses: "Addresses",
+      agent_version: "AgentVersion",
+      id: "ID",
+      protocol_version: "ProtocolVersion",
+      public_key: "PublicKey"
+    )
+    |> okify
+  end
+
   @doc "Retrieves version information about the running IPFS node."
   @spec version(t) :: result
   def version(conn) do

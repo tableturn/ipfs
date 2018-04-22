@@ -16,7 +16,7 @@ defmodule IPFS do
 
   @typedoc "Represents the endpoint to hit. Required as the first argument of most functions."
   @type t :: %__MODULE__{scheme: String.t(), host: String.t(), port: pos_integer, base: path}
-  defstruct scheme: "http", host: "localhost", port: 5001, base: "api/v0"
+  defstruct ~w(scheme host port base)a
 
   # Generic request helpers.
 
