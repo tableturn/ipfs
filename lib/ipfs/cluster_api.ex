@@ -20,7 +20,7 @@ defmodule IPFS.ClusterAPI do
   @type result :: IPFS.result()
 
   @doc "Builds a likelly to work connection struct to use with IPFS cluster."
-  @spec conn() :: t
+  @spec conn() :: t()
   def conn(), do: %IPFS{scheme: "http", host: "localhost", base: nil, port: 9094}
 
   # Top-level informative endpoints.
