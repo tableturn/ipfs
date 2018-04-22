@@ -15,7 +15,12 @@ defmodule IPFS do
   @type result :: {:ok, any} | {:error, any}
 
   @typedoc "Represents the endpoint to hit. Required as the first argument of most functions."
-  @type t :: %__MODULE__{scheme: String.t(), host: String.t(), port: pos_integer, base: path}
+  @type t :: %__MODULE__{
+          scheme: String.t(),
+          host: String.t(),
+          port: pos_integer,
+          base: path | nil
+        }
   defstruct ~w(scheme host port base)a
 
   # Generic request helpers.
