@@ -1,0 +1,56 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:5001/api/v0/id?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"ID\":\"QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g\",\"PublicKey\":\"CAASpgIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCf52y1f6g2eXlljMZKqn7KPGz60Sz/lSvmD/Buc1QtSXjTZsnp2QHS42EBkBKD7CIDyYufNp85t4l0adBLbJAgpMCoASyFBq3r71XIuPZluVPujbSN7llqy3MYkLHV3cAiTjY4LAmBM7hOhZNyyHisJYlvFyj0vMLcDB1UsKM3bHlTnPJbDqjnMo5SZeIUD9wbgYMU9SGNAW8KMsm1V0+v/sqZTLtqyMJNNz29h+1AMTgAF/+VqD2YwHQ6i9S9GwooqNz51oIVYo2Bk8hMBrpggXVAbtVnhVvN2oCV9x52hFW+r2g4QzsyRtsblvVHyXXQnYjem9sD7LpR3oCHLL4tAgMBAAE=\",\"Addresses\":[\"/ip4/127.0.0.1/tcp/4001/ipfs/QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g\",\"/ip4/172.240.0.11/tcp/4001/ipfs/QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g\",\"/ip4/86.176.58.181/tcp/1024/ipfs/QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g\"],\"AgentVersion\":\"go-ipfs/0.4.13/3b16b74\",\"ProtocolVersion\":\"ipfs/0.1.0\"}\n",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "Date": "Sun, 22 Apr 2018 09:27:43 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:5001/api/v0/version?"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"Version\":\"0.4.13\",\"Commit\":\"3b16b74\",\"Repo\":\"6\",\"System\":\"amd64/linux\",\"Golang\":\"go1.9.2\"}\n",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "Date": "Wed, 18 Apr 2018 14:31:21 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

@@ -15,17 +15,39 @@ defmodule API.APITest do
     assert "api/v0" == base
   end
 
+  @agent_version "go-ipfs/0.4.13/3b16b74"
+  @id "QmPNaEXikGScsBsswVjZmdtqmoz398s1r8tfg2enCr5S7g"
+  @protocol_version "ipfs/0.1.0"
+
+  test "#id", %{conn: conn} do
+    use_cassette "api/info", @cassette_opts do
+      %{
+        addresses: addresses,
+        agent_version: @agent_version,
+        id: @id,
+        protocol_version: @protocol_version,
+        public_key: public_key
+      } =
+        conn
+        |> API.id()
+        |> deokify
+
+      assert is_list(addresses)
+      assert is_binary(public_key)
+    end
+  end
+
   @vers "0.4.13"
-  @hash "3b16b74"
+  @commit "3b16b74"
   @go "go1.9.2"
   @sys "amd64/linux"
 
   test "#version", %{conn: conn} do
-    use_cassette "api/version", @cassette_opts do
+    use_cassette "api/info", @cassette_opts do
       conn
       |> API.version()
       |> deokify()
-      |> assert_equals(%{version: @vers, commit: @hash, golang: @go, system: @sys})
+      |> assert_equals(%{version: @vers, commit: @commit, golang: @go, system: @sys})
     end
   end
 
