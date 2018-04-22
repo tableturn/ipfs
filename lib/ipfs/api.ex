@@ -10,6 +10,10 @@ defmodule IPFS.API do
   @type filename :: IPFS.filename()
   @type result :: IPFS.result()
 
+  @doc "Builds a likelly to work connection struct to use with the IPFS API."
+  @spec conn() :: t
+  def conn(), do: %IPFS{scheme: "http", host: "localhost", port: 5001, base: "api/v0"}
+
   @doc "Retrieves version information about the running IPFS node."
   @spec version(t) :: result
   def version(conn) do

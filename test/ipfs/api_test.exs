@@ -8,6 +8,13 @@ defmodule API.APITest do
 
   setup :conn
 
+  test "#conn builds defaults", %{conn: %{scheme: scheme, host: host, port: port, base: base}} do
+    assert "http" == scheme
+    assert "localhost" == host
+    assert 5001 == port
+    assert "api/v0" == base
+  end
+
   @vers "0.4.13"
   @hash "3b16b74"
   @go "go1.9.2"
@@ -83,7 +90,7 @@ defmodule API.APITest do
     end
   end
 
-  defp conn(ctx), do: {:ok, Map.put(ctx, :conn, %IPFS{port: 5001})}
+  defp conn(ctx), do: {:ok, Map.put(ctx, :conn, IPFS.API.conn())}
 
   defp deokify({:ok, res}), do: res
   defp assert_equals(right, left), do: assert(left == right)

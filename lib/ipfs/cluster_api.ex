@@ -19,6 +19,10 @@ defmodule IPFS.ClusterAPI do
   @type filename :: IPFS.filename()
   @type result :: IPFS.result()
 
+  @doc "Builds a likelly to work connection struct to use with IPFS cluster."
+  @spec conn() :: t
+  def conn(), do: %IPFS{scheme: "http", host: "localhost", base: nil, port: 9094}
+
   # Top-level informative endpoints.
 
   @id_fields ~w(addresses cluster_peers cluster_peers_addresses commit error id ipfs peername rpc_protocol_version version)a
