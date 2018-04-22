@@ -1,9 +1,10 @@
-defmodule API.ClusterAPITest do
+defmodule IPFS.ClusterAPITest do
   @moduledoc false
   use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   alias IPFS.ClusterAPI
   doctest ClusterAPI, import: true
+
   @cassette_opts [match_requests_on: [:query, :request_body]]
 
   @cid "QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
