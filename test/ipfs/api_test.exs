@@ -1,9 +1,10 @@
-defmodule API.APITest do
+defmodule IPFS.APITest do
   @moduledoc false
   use ExUnit.Case, async: true
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
   alias IPFS.API
   doctest API, import: true
+
   @cassette_opts [match_requests_on: [:query, :request_body]]
 
   setup :conn

@@ -3,6 +3,7 @@ defmodule IPFS do
   Provides abstration allowing to access IPFS nodes with low effort.
   """
 
+  import IPFS.Utils, only: [pipe: 2]
   alias HTTPoison.{AsyncResponse, Response, Error}
 
   @typedoc "Represents an endpoint path to hit."
@@ -55,26 +56,22 @@ defmodule IPFS do
   defp request(conn, path, requester) do
     conn
     |> to_string()
-    |> at(path)
+    |> pipe(&"#{&1}/#{path}")
     |> requester.()
     |> to_result
   end
 
-  @spec at(String.t(), String.t() | nil) :: String.t()
-  defp at(url, nil), do: url
-  defp at(url, path), do: "#{url}/#{path}"
-
   @spec to_result(poison_result) :: result
+  defp to_result({:ok, %Response{status_code: 200, body: b}}) when byte_size(b) == 0 do
+    {:ok, %{}}
+  end
+
   defp to_result({:ok, %Response{status_code: 200, body: b}}) do
     case Poison.decode(b) do
       {:ok, _} = res -> res
       {:error, :invalid, 0} -> {:ok, %{}}
       otherwise -> otherwise
     end
-  end
-
-  defp to_result({:ok, %Response{status_code: 200}}) do
-    %{}
   end
 
   defp to_result({:ok, %Response{status_code: c, body: b}}) do

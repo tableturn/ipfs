@@ -1,0 +1,30 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": [],
+      "request_body": "",
+      "url": "http://localhost:5001/api/v0/error_please?"
+    },
+    "response": {
+      "binary": false,
+      "body": "[JSON ERROR",
+      "headers": {
+        "Access-Control-Allow-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Access-Control-Expose-Headers": "X-Stream-Output, X-Chunked-Output, X-Content-Length",
+        "Content-Type": "application/json",
+        "Control-Allow-Methods": "PUT",
+        "Server": "go-ipfs/0.4.13",
+        "Trailer": "X-Stream-Error",
+        "Vary": "Origin",
+        "X-Chunked-Output": "1",
+        "Date": "Sun, 22 Apr 2018 16:28:46 GMT",
+        "Transfer-Encoding": "chunked"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

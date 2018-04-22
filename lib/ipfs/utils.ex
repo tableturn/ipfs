@@ -1,6 +1,17 @@
 defmodule IPFS.Utils do
   @moduledoc false
 
+  @doc """
+  Allows easy piping of an argument into a function.
+
+  ## Examples
+
+      iex> "Hello" |> pipe(&("\#{&1}/there"))
+      "Hello/there"
+  """
+  @spec pipe(any, (any -> any)) :: any
+  def pipe(arg, f), do: f.(arg)
+
   @spec remap_fields(IPFS.result(), [{atom, String.t()}]) :: %{}
   def remap_fields(res, mapping) do
     with {:ok, data} <- res do
