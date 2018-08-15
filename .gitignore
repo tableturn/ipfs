@@ -3,6 +3,8 @@
 /db
 /deps
 /doc
+/.vscode
+/.elixir_ls
 
 *.beam
 *.dump
