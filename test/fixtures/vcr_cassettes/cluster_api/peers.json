@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9094/peers?"
+      "url": "http://localhost:9094/peers"
     },
     "response": {
       "binary": false,

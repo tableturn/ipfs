@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:5001/api/v0/FourOhFour?"
+      "url": "http://localhost:5001/api/v0/FourOhFour"
     },
     "response": {
       "binary": false,
@@ -28,7 +28,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:5001/api/v0/pin/verify?"
+      "url": "http://localhost:5001/api/v0/pin/verify"
     },
     "response": {
       "binary": false,

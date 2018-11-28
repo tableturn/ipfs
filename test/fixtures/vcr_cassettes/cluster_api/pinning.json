@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9094/pins?"
+      "url": "http://localhost:9094/pins"
     },
     "response": {
       "binary": false,
@@ -27,7 +27,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9094/pins/QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3?"
+      "url": "http://localhost:9094/pins/QmQChpnJJ5am4HRiW7b1KZtBEBeWy3azovVMCL3xsFVUL3"
     },
     "response": {
       "binary": false,

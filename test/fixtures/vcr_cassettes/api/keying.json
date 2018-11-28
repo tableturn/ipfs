@@ -33,7 +33,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:5001/api/v0/key/list?"
+      "url": "http://localhost:5001/api/v0/key/list"
     },
     "response": {
       "binary": false,
