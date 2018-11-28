@@ -33,7 +33,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:5001/api/v0/pin/ls?"
+      "url": "http://localhost:5001/api/v0/pin/ls"
     },
     "response": {
       "binary": false,

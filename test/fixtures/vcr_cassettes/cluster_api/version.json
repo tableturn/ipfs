@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9094/version?"
+      "url": "http://localhost:9094/version"
     },
     "response": {
       "binary": false,

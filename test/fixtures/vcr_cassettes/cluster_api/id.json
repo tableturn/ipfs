@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:9094/id?"
+      "url": "http://localhost:9094/id"
     },
     "response": {
       "binary": false,

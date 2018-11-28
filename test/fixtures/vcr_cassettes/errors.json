@@ -6,7 +6,7 @@
       "method": "get",
       "options": [],
       "request_body": "",
-      "url": "http://localhost:5001/api/v0/error_please?"
+      "url": "http://localhost:5001/api/v0/error_please"
     },
     "response": {
       "binary": false,
