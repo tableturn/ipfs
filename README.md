@@ -1,6 +1,6 @@
 # IPFS
 
-[![Build Status](https://ci.linky.one/api/badges/tableturn/ipfs/status.svg)](https://ci.emage.run/tableturn/ipfs)
+[![Build Status](https://ci.linky.one/api/badges/tableturn/ipfs/status.svg)](https://ci.linky.one/tableturn/ipfs)
 [![Coverage Report](https://codecov.io/gh/tableturn/ipfs/branch/master/graph/badge.svg)](https://codecov.io/gh/tableturn/ipfs)
 [![Hex.pm](https://img.shields.io/hexpm/dt/ipfs.svg)](https://hex.pm/packages/ipfs)
 
