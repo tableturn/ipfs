@@ -10,8 +10,8 @@ defmodule IPFS.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       name: "IPFS",
-      source_url: "https://github.com/the-missing-link/ipfs",
-      homepage_url: "https://github.com/the-missing-link/ipfs",
+      source_url: "https://github.com/tableturn/ipfs",
+      homepage_url: "https://github.com/tableturn/ipfs",
       dialyzer: [plt_add_deps: :project],
       docs: [extras: ~w(README.md)],
       test_coverage: [tool: ExCoveralls],
@@ -58,7 +58,7 @@ defmodule IPFS.MixProject do
       files: ["lib", "mix.exs", "README*"],
       maintainers: ["Pierre Martin"],
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => "https://github.com/the-missing-link/ipfs"}
+      links: %{"GitHub" => "https://github.com/tableturn/ipfs"}
     ]
   end
 end
