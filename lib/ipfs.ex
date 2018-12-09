@@ -48,6 +48,14 @@ defmodule IPFS do
     request(conn, path, &HTTPoison.post(&1, multipart(filename), params: params))
   end
 
+  @doc """
+  High level function which allows to send a raw value to the node, say, a JSON encoded value.
+  """
+  @spec post_raw(t, String.t(), String.t(), Sring.t(), keyword) :: result
+  def post_raw(conn, path, content, filename, params \\ []) do
+    request(conn, path, &HTTPoison.post(&1, raw_multipart(content, filename), params: params))
+  end
+
   # Private stuff.
 
   @typep poison_result :: {:ok, Response.t() | AsyncResponse.t()} | {:error, Error.t()}
@@ -88,6 +96,13 @@ defmodule IPFS do
   defp multipart(filename) do
     {:multipart,
      [{:file, filename, {"form-data", [name: Path.basename(filename), filename: filename]}, []}]}
+  end
+
+  defp raw_multipart(content, name) do
+    {:multipart,
+     [
+       {"file", content, {"form-data", [name: "file", filename: name]}, []}
+     ]}
   end
 
   defimpl String.Chars, for: IPFS do
