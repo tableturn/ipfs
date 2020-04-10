@@ -1,7 +1,7 @@
 defmodule IPFS.API do
   @moduledoc false
 
-  import IPFS, only: [get: 2, get: 3, post_file: 4]
+  import IPFS, only: [get: 2, get: 3, post_file: 4, post_raw: 5]
   import IPFS.Utils, only: [remap_fields: 2, remap_array: 2, successify_with: 1, okify: 1]
 
   @type t :: IPFS.t()
@@ -99,6 +99,13 @@ defmodule IPFS.API do
     |> post_file("add", filename, params)
     |> remap_fields(name: "Name", hash: "Hash", size: "Size")
     |> okify
+  end
+
+  def add_raw(conn, content, name, params \\ []) do
+    conn
+    |> post_raw("add", content, name, params)
+    |> remap_fields(name: "Name", hash: "Hash", size: "Size")
+    |> okify()
   end
 
   # Pinning.
